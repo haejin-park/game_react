@@ -1,12 +1,11 @@
 import React from 'react'
 
 const Box = (props) => {
-    console.log(props);
     let result;
     if(props.title === "Computer" &&
         props.result !== "tie" &&
         props.result !== "") {
-            result = props.result === "win"? "lose": "win"; //컴퓨터 결과값이 유저와 반대로 나오게
+            result = props.result === "win"? "lose": "win"; 
         } else {
             result = props.result;
         }

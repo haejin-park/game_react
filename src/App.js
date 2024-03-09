@@ -2,14 +2,6 @@ import {useState} from "react";
 import './App.css';
 import Box from './component/Box';
 
-/*
-1. 박스 2개(타이틀, 사진, 결과)
-2. 버튼(가위, 바위, 보)
-3. 버튼 클릭하면 클릭한 값이 콘솔에 보임
-4. 컴퓨터는 랜덤하게 아이템 선택이 된다
-5. 3 4의 결과를 가지고 누가 이겼는지 승패를 따진다
-6. 테두리 컬러(이기면green, 지면red,  비기면 black)
-*/
 const choice = {
   rock: {
     name: "Rock",
@@ -37,23 +29,6 @@ function App() {
     setResult(judgement(choice[userChoice],  computerChoice));
   }
   const judgement = (user, computer) => {
-    console.log("user", user, "computer", computer);
-    /*
-      user == computer  => tie
-
-      user == "Rock", 
-      computer == "Paper" => user lose
-      computer == "Scissors" => user win
-        
-
-      user == "Scissors", 
-      computer == "Paper" => user win
-      computer == "Rock" => user lose 
-
-      user == "Paper",
-      computer == "Rock" => user win 
-      computer == "Scissors" => user lose
-    */
     if(user.name === computer.name) 
       return "tie"
     else if(user.name === "Rock") 
@@ -65,12 +40,9 @@ function App() {
   };
 
   const randomChoice = () => {
-    let itemArray = Object.keys(choice);//객체에 키값만 뽑아서 배열로 만들어주는 함수
-    console.log("itemsArray", itemArray);
+    let itemArray = Object.keys(choice);
     let randomItem = Math.floor(Math.random()* itemArray.length);    
-    console.log("randomItem", randomItem);
     let final = itemArray[randomItem];
-    console.log("final", final);
     return choice[final];
   };
 
